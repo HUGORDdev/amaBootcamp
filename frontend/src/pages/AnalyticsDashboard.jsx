@@ -14,6 +14,7 @@ import {
   Cell
 } from 'recharts';
 
+
 import {
   Activity,
   TrendingUp,
@@ -89,7 +90,7 @@ const AnalyticsDashboard = () => {
         {/* Section KPI - Top Bar */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 place-items-center ">
           {/* KPI 1: Risque Élevé */}
-          <div className="group bg-red-600/80   rounded-2xl p-6  hover:shadow-md transition-all duration-300 transform hover:-translate-y-1   ">
+          <div className="group bg-[#286E6B]   rounded-2xl p-6  hover:shadow-md transition-all duration-300 transform hover:-translate-y-1   ">
             <div className="flex items-start justify-between mb-4">
               <div className="bg-white/20 backdrop-blur-sm p-3 rounded-2xl border border-white/30">
                 <AlertTriangle className="w-7 h-7 text-white" strokeWidth={2.5} />
@@ -112,7 +113,7 @@ const AnalyticsDashboard = () => {
           </div>
 
           {/* KPI 2: Impact HTA */}
-          <div className="group bg-indigo-500 min-w-85  rounded-2xl p-6  hover:shadow-md transition-all duration-300 transform hover:-translate-y-1 ">
+          <div className="group bg-[#222266] min-w-85  rounded-2xl p-6  hover:shadow-md transition-all duration-300 transform hover:-translate-y-1 ">
             <div className="flex items-start justify-between mb-4">
               <div className="bg-white/20 backdrop-blur-sm p-3 rounded-2xl border border-white/30">
                 <Heart className="w-7 h-7 text-white" strokeWidth={2.5} />
@@ -135,7 +136,7 @@ const AnalyticsDashboard = () => {
           </div>
 
           {/* KPI 3: F1-Score IA */}
-          <div className="group bg-[#28A745] min-w-85 rounded-2xl p-6 shadow-md hover:shadow-md transition-all duration-300 transform hover:-translate-y-1 ">
+          <div className="group bg-[#286E6B] min-w-85 rounded-2xl p-6 shadow-md hover:shadow-md transition-all duration-300 transform hover:-translate-y-1 ">
             <div className="flex items-start justify-between mb-4">
               <div className="bg-white/20 backdrop-blur-sm p-3 rounded-2xl border border-white/30">
                 <Activity className="w-7 h-7 text-white" strokeWidth={2.5} />
@@ -158,7 +159,7 @@ const AnalyticsDashboard = () => {
           </div>
 
           {/* KPI 4: Total Patients */}
-          <div className="group min-w-85 bg-blue-600 rounded-2xl p-6  hover:shadow-md transition-all duration-300 transform hover:-translate-y-1 ">
+          <div className="group min-w-85 bg-[#222266] rounded-2xl p-6  hover:shadow-md transition-all duration-300 transform hover:-translate-y-1 ">
             <div className="flex items-start justify-between mb-4">
               <div className="bg-white/20 backdrop-blur-sm p-3 rounded-2xl border border-white/30">
                 <Users className="w-7 h-7 text-white" strokeWidth={2.5} />
@@ -227,8 +228,8 @@ const AnalyticsDashboard = () => {
                 <Bar dataKey="Stade 1" stackId="a" fill="#3B82F6" radius={[0, 0, 0, 0]} />
                 <Bar dataKey="Stade 2" stackId="a" fill="#10B981" radius={[0, 0, 0, 0]} />
                 <Bar dataKey="Stade 3" stackId="a" fill="#F59E0B" radius={[0, 0, 0, 0]} />
-                <Bar dataKey="Stade 4" stackId="a" fill="#EF4444" radius={[0, 0, 0, 0]} />
-                <Bar dataKey="Stade 5" stackId="a" fill="#DC2626" radius={[8, 8, 0, 0]} />
+                <Bar dataKey="Stade 4" stackId="a" fill="#222266" radius={[0, 0, 0, 0]} />
+                <Bar dataKey="Stade 5" stackId="a" fill="#286E6B" radius={[8, 8, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
 
@@ -316,8 +317,8 @@ const AnalyticsDashboard = () => {
 
             <div className="mt-4 p-4 bg-emerald-50 rounded-2xl border border-emerald-100">
               <div className="flex items-start space-x-3">
-                <Info className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
-                <p className="text-sm text-emerald-900 font-semibold">
+                <Info className="w-5 h-5 text-[#286E6B] shrink-0 mt-0.5" />
+                <p className="text-sm text-[#286E6B] font-semibold">
                   <span className="font-black">Insight:</span> Augmentation exponentielle de la créatinine avec l'aggravation du stade (387 mg/L au Stade 5).
                 </p>
               </div>
@@ -366,7 +367,7 @@ const AnalyticsDashboard = () => {
                 />
                 <Bar dataKey="Stade 1-2" fill="#10B981" radius={[8, 8, 0, 0]} />
                 <Bar dataKey="Stade 3" fill="#F59E0B" radius={[8, 8, 0, 0]} />
-                <Bar dataKey="Stade 4-5" fill="#DC2626" radius={[8, 8, 0, 0]} />
+                <Bar dataKey="Stade 4-5" fill="#286E6B" radius={[8, 8, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
 

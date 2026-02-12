@@ -327,7 +327,7 @@ const HomePage = () => {
 
             {/* Right: Visual */}
             <div className="relative">
-              <div className="bg-linear-to-br from-blue-500/20 to-emerald-500/20 rounded-3xl p-8 backdrop-blur-sm border border-white/10">
+              <div className=" rounded-2xl p-8  border border-white/10">
                 <img
                   src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600"
                   alt="IA Médicale"

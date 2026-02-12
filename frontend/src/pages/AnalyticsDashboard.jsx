@@ -13,12 +13,7 @@ import {
   ResponsiveContainer,
   Cell
 } from 'recharts';
-// import {
-//   ComposableMap,
-//   Geographies,
-//   Geography,
-//   ZoomableGroup
-// } from 'react-simple-maps';
+
 import {
   Activity,
   TrendingUp,

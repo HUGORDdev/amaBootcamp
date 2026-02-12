@@ -36,38 +36,32 @@ const HomePage = () => {
       <Nav />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-
-
-        <div className="max-w-7xl mx-auto relative">
+      <section className="relative pt-32 pb-20 px-4 sm:px-6 bg-[#FDF1EF]  lg:px-8 overflow-hidden  ">
+        <div className="max-w-7xl mx-auto relative  rounded-2xl">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
             <div className="space-y-8 animate-fadeIn">
 
 
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-black leading-tight">
-                <span className="bg-linear-to-r from-slate-900 via-blue-800 to-slate-900 bg-clip-text text-transparent">
+              <h1 className="text-5xl md:text-6xl text-[#222266] lg:text-7xl font-black leading-tight">
+                
                   Protégez vos
-                </span>
                 <br />
-                <span className="bg-[#28A745] bg-clip-text text-transparent animate-gradient">
                   Reins
-                </span>
                 <br />
-                <span className="text-slate-800">
                   Aujourd'hui
-                </span>
+                
               </h1>
 
               <p className="text-xl text-slate-600 leading-relaxed font-medium max-w-xl">
-                L'insuffisance rénale chronique est <span className="text-blue-700 font-bold">silencieuse</span> mais détectable.
-                Notre IA analyse vos données de santé pour <span className="text-emerald-600 font-bold">prévenir les risques</span> avant qu'il ne soit trop tard.
+                L'insuffisance rénale chronique est silencieuse mais détectable.
+                Notre IA analyse vos données de santé pour prévenir les risques avant qu'il ne soit trop tard.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
                 <a
                   href="#evaluation"
-                  className="group relative inline-flex items-center justify-center px-8 py-4 rounded-2xl font-bold text-lg text-white bg-[#28A745] shadow-xl    transition-all duration-300 transform hover:scale-105"
+                  className="group relative inline-flex items-center justify-center px-8 py-4 rounded-2xl font-bold text-lg text-white bg-[#286E6B] shadow-xl    transition-all duration-300 transform hover:scale-105"
                 >
                   {/* <span /> */}
                   <Link to={'/analytics'}
@@ -81,7 +75,7 @@ const HomePage = () => {
 
                 <a
                   href="#comment-ca-marche"
-                  className="inline-flex items-center justify-center px-8 py-4 rounded-2xl font-bold text-lg text-blue-700 bg-white border-2 border-blue-200 hover:border-blue-400 hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 shadow-lg"
+                  className="inline-flex items-center justify-center px-8 py-4 rounded-2xl font-bold text-lg text-[#286E6B] bg-white border-2 border-[#286E6B] hover:border-green-900  transition-all duration-300 transform hover:scale-105 shadow-lg"
                 >
                   Comment ça marche ?
                 </a>
@@ -95,7 +89,7 @@ const HomePage = () => {
                   { value: '24/7', label: 'Disponibilité' }
                 ].map((stat) => (
                   <div key={stat.label} className="text-center">
-                    <div className="text-3xl font-black bg-blue-600 bg-clip-text text-transparent">
+                    <div className="text-3xl font-black bg-[#222266] bg-clip-text text-transparent">
                       {stat.value}
                     </div>
                     <div className="text-xs text-slate-600 font-semibold mt-1">{stat.label}</div>
@@ -106,26 +100,24 @@ const HomePage = () => {
 
             {/* Right Image */}
             <div className="relative lg:h-150 animate-fadeInRight">
-              <div className="absolute inset-0 bg-linear-to-br from-blue-500/20 to-emerald-500/20 rounded-3xl blur-2xl transform rotate-6"></div>
-              <div className="relative h-full rounded-3xl overflow-hidden shadow-2xl shadow-blue-900/20 border-4 border-white">
+              <div className="relative h-full rounded-3xl overflow-hidden   border-4 border-white">
                 <img
                   src="man.jpg"
                   alt="Prévention santé rénale"
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-linear-to-t from-blue-900/40 via-transparent to-transparent"></div>
 
                 {/* Floating Badge */}
-                <div className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-xl rounded-2xl p-5 shadow-2xl border border-blue-100">
+                <div className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-xl rounded-2xl p-5  border border-blue-100">
                   <div className="flex items-center space-x-4">
-                    <div className="bg-blue-600 p-3 rounded-xl">
+                    <div className="bg-[#222266] p-3 rounded-xl">
                       <Shield className="w-6 h-6 text-white" />
                     </div>
                     <div className="flex-1">
                       <div className="text-sm font-bold text-slate-800">Protection Active</div>
                       <div className="text-xs text-slate-600 font-medium">Surveillance continue de votre santé</div>
                     </div>
-                    <CheckCircle2 className="w-6 h-6 text-emerald-500" />
+                    <CheckCircle2 className="w-6 h-6 text-[#286E6B]" />
                   </div>
                 </div>
               </div>
@@ -170,7 +162,7 @@ const HomePage = () => {
             ].map((danger, idx) => (
               <div
                 key={idx}
-                className="group relative bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500 border border-slate-100 transform hover:-translate-y-1"
+                className="group relative bg-white rounded-xl overflow-hidden  transition-all duration-500 border border-slate-100 transform hover:-translate-y-1"
               >
                 {/* Image Background */}
                 <div className="h-48 overflow-hidden relative">
@@ -196,7 +188,7 @@ const HomePage = () => {
       </section>
 
       {/* Prevention Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-linear-to-br from-emerald-50 via-blue-50/30 to-white">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
 
@@ -210,8 +202,8 @@ const HomePage = () => {
 
           <div className="grid md:grid-cols-2 gap-8 mb-12">
             {/* Large Card */}
-            <div className="md:row-span-2 bg-[#0077BE] rounded-3xl p-8 text-white shadow-2xl shadow-blue-900/20 relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
+            <div className="md:row-span-2 bg-[#14143D] rounded-3xl p-8 text-white  shadow-blue-900/20 relative overflow-hidden">
+              {/* <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div> */}
               <div className="relative z-10">
                 <Droplet className="w-16 h-16 mb-6" strokeWidth={1.5} />
                 <h3 className="text-3xl font-black mb-4">Hydratation Optimale</h3>
@@ -236,20 +228,20 @@ const HomePage = () => {
                 icon: <Apple className="w-10 h-10" />,
                 title: 'Alimentation Équilibrée',
                 description: 'Privilégiez fruits, légumes et protéines maigres. Limitez le sel et les graisses saturées.',
-                color: 'bg-[#28A745]',
+                color: 'bg-[#286E6B]',
                 tips: ['Fruits & légumes frais', 'Réduire le sel', 'Protéines de qualité']
               },
               {
                 icon: <Stethoscope className="w-10 h-10" />,
                 title: 'Contrôle de la Tension',
                 description: 'Surveillez régulièrement votre tension artérielle et votre glycémie.',
-                color: 'bg-blue-500',
+                color: 'bg-[#222266]',
                 tips: ['Check-up réguliers', 'Tension < 140/90', 'Glycémie contrôlée']
               }
             ].map((practice, idx) => (
               <div
                 key={idx}
-                className="bg-white rounded-3xl p-6 shadow-lg hover:shadow-xl transition-all duration-500 border border-slate-100 group hover:-translate-y-0.5"
+                className=" rounded-3xl p-6  bg-white  transition-all duration-500 border border-slate-300 group hover:-translate-y-0.5"
               >
                 <div className={`inline-flex p-3 rounded-2xl text-white ${practice.color}  mb-4 group-hover:scale-110 transition-transform`}>
                   {practice.icon}
@@ -271,12 +263,8 @@ const HomePage = () => {
       </section>
 
       {/* AI Section */}
-      <section id="comment-ca-marche" className="py-20 px-4 sm:px-6 lg:px-8 bg-blue-600  text-white relative overflow-hidden">
-        {/* Animated Background */}
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-emerald-500 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        </div>
+      <section id="comment-ca-marche" className="py-20 px-4 sm:px-6 lg:px-8 bg-[#14143D]  text-white relative overflow-hidden">
+      
 
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center mb-16">
@@ -343,18 +331,18 @@ const HomePage = () => {
                 <img
                   src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600"
                   alt="IA Médicale"
-                  className="w-full h-96 object-cover rounded-2xl shadow-2xl"
+                  className="w-full h-96 object-cover rounded-2xl "
                 />
 
                 {/* Floating Stats */}
-                <div className="absolute -top-6 -right-6 bg-white text-slate-900 rounded-2xl p-5 shadow-2xl border-1 border-[#ccc]">
-                  <div className="text-4xl font-black bg-blue-600 bg-clip-text text-transparent mb-1">
+                <div className="absolute -top-6 -right-6 bg-white text-slate-900 rounded-2xl p-5  border border-[#ccc]">
+                  <div className="text-4xl font-black bg-[#222266] bg-clip-text text-transparent mb-1">
                     95.7%
                   </div>
                   <div className="text-sm font-bold text-slate-600">Précision IA</div>
                 </div>
 
-                <div className="absolute -bottom-6 -left-6 bg-[#20B2AA]  rounded-2xl p-5 shadow-2xl">
+                <div className="absolute -bottom-6 -left-6 bg-[#286E6B]  rounded-2xl p-5 ">
                   <div className="text-4xl font-black text-white mb-1">
                     2M+
                   </div>
@@ -367,7 +355,7 @@ const HomePage = () => {
           <div className="text-center mt-16">
             <a
               href="#evaluation"
-              className="inline-flex items-center px-10 py-5 rounded-2xl font-black text-lg bg-white text-slate-900 shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 transform hover:scale-105"
+              className="inline-flex items-center px-10 py-5 rounded-2xl font-black text-lg bg-white text-slate-900  hover:shadow-blue-500/50 transition-all duration-300 transform hover:scale-105"
             >
               Tester L'IA Maintenant
               <ChevronRight className="ml-2 w-5 h-5" />
@@ -379,7 +367,7 @@ const HomePage = () => {
       {/* Solidarity/Donation Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 ">
         <div className="max-w-7xl mx-auto">
-          <div className="bg-linear-to-br from-rose-600 via-orange-500 to-amber-500 rounded-3xl overflow-hidden shadow-2xl">
+          <div className="bg-[#FDF1EF]  rounded-2xl overflow-hidden ">
             <div className="grid lg:grid-cols-2 gap-8 items-center">
 
               <div className="relative h-full min-h-100">
@@ -388,11 +376,11 @@ const HomePage = () => {
                   alt="Solidarité"
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-linear-to-r from-rose-900/60 to-transparent"></div>
+                {/* <div className="absolute inset-0 bg-linear-to-r from-rose-900/60 to-transparent"></div> */}
               </div>
 
               {/* Content */}
-              <div className="p-8 lg:p-12 text-white">
+              <div className="p-8 lg:p-12  text-[#222266]">
                 <div className="inline-flex items-center space-x-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
                   <HandHeart className="w-5 h-5" />
                   <span className="text-sm font-bold">Solidarité & Entraide</span>
@@ -402,31 +390,17 @@ const HomePage = () => {
                   Ensemble pour Sauver des Vies au Bénin
                 </h2>
 
-                <p className="text-xl text-rose-50 leading-relaxed mb-8 font-medium">
+                <p className="text-lg  leading-relaxed mb-8 font-light">
                   Au Bénin, des milliers de patients n'ont pas accès aux soins rénaux.
                   Votre don peut changer une vie en finançant des dépistages gratuits et des traitements pour les plus démunis.
                 </p>
 
-                <div className="space-y-4 mb-8">
-                  {[
-                    { amount: '10€', impact: 'Finance un dépistage complet' },
-                    { amount: '50€', impact: 'Offre des médicaments pour 1 mois' },
-                    { amount: '200€', impact: 'Permet une séance de dialyse' }
-                  ].map((donation) => (
-                    <div key={donation.amount} className="flex items-center space-x-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-4">
-                      <div className="bg-white text-rose-600 font-black text-2xl px-4 py-2 rounded-lg">
-                        {donation.amount}
-                      </div>
-                      <div className="flex-1 font-semibold">{donation.impact}</div>
-                    </div>
-                  ))}
-                </div>
 
-                <div className="flex flex-col sm:flex-row gap-4">
+                <div className="flex flex-col sm:flex-row gap-4 sm:mt-40 ">
                   <a
                     onClick={() => notify()}
                     href="#don"
-                    className="inline-flex items-center justify-center px-8 py-4 rounded-2xl font-black text-lg bg-white text-rose-600 hover:bg-rose-50 transition-all duration-300 transform hover:scale-105 shadow-xl"
+                    className="inline-flex items-center justify-center px-8 py-4 rounded-2xl font-black text-lg bg-[#EE7766] text-white  transition-all duration-300 transform hover:scale-105 "
                   >
                     <Heart className="mr-2 w-5 h-5 fill-current" />
                     Faire Un Don
@@ -435,7 +409,7 @@ const HomePage = () => {
                     href="#en-savoir-plus"
                     onClick={() => notify()}
 
-                    className="inline-flex items-center justify-center px-8 py-4 rounded-2xl font-bold text-lg text-white border-2 border-white/30 hover:bg-white/10 transition-all duration-300"
+                    className="inline-flex items-center justify-center px-8 py-4  font-bold text-lg text-[#286E6B] border-2 border-[#286E6B] rounded-2xl   hover:bg-white/10 transition-all duration-300"
                   >
                     En Savoir Plus
                   </a>

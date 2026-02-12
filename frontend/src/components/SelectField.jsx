@@ -10,8 +10,8 @@ const SelectField = ({ label, name, options, required = false, errors, formData,
             name={name}
             value={formData[name]}
             onChange={handleChange}
-            className={`w-full px-3 py-2.5 text-sm border ${errors[name] ? 'border-[#282830]' : 'border-gray-300 rounded-xl'
-                } focus:border-[#282830] focus:outline-none focus:ring-1 focus:ring-[#282830] transition-all bg-white`}
+            className={`w-full px-3 py-2.5 text-sm border ${errors[name] ? 'border-red-500' : 'border-gray-300 rounded-xl'
+                } focus:border-[#1188CC] focus:outline-none focus:ring-1 focus:ring-[#1188CC] transition-all bg-white`}
             aria-invalid={errors[name] ? 'true' : 'false'}
         >
             <option value="">Sélectionner...</option>

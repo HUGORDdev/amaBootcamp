@@ -11,9 +11,9 @@ const InputField = ({ label, name, type = 'text', required = false, placeholder,
         onChange={handleChange}
         placeholder={placeholder}
         step={step}
-        className={`w-full px-3 py-2.5 text-sm border ${
-          errors[name] ? 'border-[#282830]' : 'border-gray-300 rounded-xl'
-        } focus:border-[#282830] focus:outline-none focus:ring-1 focus:ring-[#282830] transition-all`}
+        className={`w-full px-3 py-2.5 text-sm border rounded-xl ${
+          errors[name] ? 'border-red-600' : 'border-gray-300 '
+        } focus:border-[#1188CC] focus:outline-none focus:ring-1 focus:ring-[#1188CC] transition-all`}
         aria-invalid={errors[name] ? 'true' : 'false'}
         aria-describedby={errors[name] ? `${name}-error` : undefined}
       />

@@ -74,7 +74,7 @@ const AnalyticsDashboard = () => {
       <Nav routeFocus={1}/>
       <div className=" mt-32 max-w-450 mx-auto space-y-8 mb-5 md:p-8">
         {/* Header */}
-        <div className="bg-white rounded-3xl shadow-xl border border-slate-100 p-8">
+        <div className="bg-white rounded-3xl  border border-slate-100 p-8">
           <div className="flex items-start justify-between">
             <div>
               <h1 className="text-4xl md:text-5xl font-black bg-blue-600 bg-clip-text text-transparent mb-3">
@@ -85,8 +85,8 @@ const AnalyticsDashboard = () => {
               </p>
             </div>
             <div className="hidden md:flex items-center space-x-2 bg-emerald-100 px-5 py-3 rounded-2xl border border-emerald-200">
-              <Target className="w-5 h-5 text-emerald-600" />
-              <span className="text-sm font-bold text-emerald-700">Données Réelles 2026</span>
+              
+              <span className="text-sm font-bold text-emerald-700">Données  2026</span>
             </div>
           </div>
         </div>
@@ -94,7 +94,7 @@ const AnalyticsDashboard = () => {
         {/* Section KPI - Top Bar */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 place-items-center ">
           {/* KPI 1: Risque Élevé */}
-          <div className="group bg-red-600/80   rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1   ">
+          <div className="group bg-red-600/80   rounded-2xl p-6  hover:shadow-md transition-all duration-300 transform hover:-translate-y-1   ">
             <div className="flex items-start justify-between mb-4">
               <div className="bg-white/20 backdrop-blur-sm p-3 rounded-2xl border border-white/30">
                 <AlertTriangle className="w-7 h-7 text-white" strokeWidth={2.5} />
@@ -117,7 +117,7 @@ const AnalyticsDashboard = () => {
           </div>
 
           {/* KPI 2: Impact HTA */}
-          <div className="group bg-linear-to-br from-purple-600 min-w-85 to-indigo-500 rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 ">
+          <div className="group bg-indigo-500 min-w-85  rounded-2xl p-6  hover:shadow-md transition-all duration-300 transform hover:-translate-y-1 ">
             <div className="flex items-start justify-between mb-4">
               <div className="bg-white/20 backdrop-blur-sm p-3 rounded-2xl border border-white/30">
                 <Heart className="w-7 h-7 text-white" strokeWidth={2.5} />
@@ -140,7 +140,7 @@ const AnalyticsDashboard = () => {
           </div>
 
           {/* KPI 3: F1-Score IA */}
-          <div className="group bg-[#28A745] min-w-85 rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 ">
+          <div className="group bg-[#28A745] min-w-85 rounded-2xl p-6 shadow-md hover:shadow-md transition-all duration-300 transform hover:-translate-y-1 ">
             <div className="flex items-start justify-between mb-4">
               <div className="bg-white/20 backdrop-blur-sm p-3 rounded-2xl border border-white/30">
                 <Activity className="w-7 h-7 text-white" strokeWidth={2.5} />
@@ -163,7 +163,7 @@ const AnalyticsDashboard = () => {
           </div>
 
           {/* KPI 4: Total Patients */}
-          <div className="group bg-linear-to-br min-w-85 from-blue-600 to-cyan-500 rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 ">
+          <div className="group min-w-85 bg-blue-600 rounded-2xl p-6  hover:shadow-md transition-all duration-300 transform hover:-translate-y-1 ">
             <div className="flex items-start justify-between mb-4">
               <div className="bg-white/20 backdrop-blur-sm p-3 rounded-2xl border border-white/30">
                 <Users className="w-7 h-7 text-white" strokeWidth={2.5} />
@@ -190,7 +190,7 @@ const AnalyticsDashboard = () => {
         <div className="grid lg:grid-cols-2 gap-6">
           
           {/* Graphique A: Âge x Stade (Stacked Bar) */}
-          <div className="bg-white rounded-3xl shadow-xl border border-slate-100 p-6 hover:shadow-2xl transition-shadow">
+          <div className="bg-white rounded-2xl border border-slate-100 p-6 hover:shadow-md transition-shadow">
             <div className="flex items-center justify-between mb-6">
               <div>
                 <h3 className="text-xl font-black text-slate-900 mb-1">
@@ -200,9 +200,7 @@ const AnalyticsDashboard = () => {
                   Progression de la maladie selon les tranches d'âge
                 </p>
               </div>
-              <div className="bg-blue-100 p-2 rounded-xl">
-                <TrendingUp className="w-5 h-5 text-blue-600" />
-              </div>
+              
             </div>
             
             <ResponsiveContainer width="100%" height={350}>
@@ -250,7 +248,7 @@ const AnalyticsDashboard = () => {
           </div>
 
           {/* Graphique B: Créatinine x Stade (Composed) */}
-          <div className="bg-white rounded-3xl shadow-xl border border-slate-100 p-6 hover:shadow-2xl transition-shadow">
+          <div className="bg-white rounded-2xl  border border-slate-100 p-6 hover:shadow-md transition-shadow">
             <div className="flex items-center justify-between mb-6">
               <div>
                 <h3 className="text-xl font-black text-slate-900 mb-1">
@@ -260,9 +258,7 @@ const AnalyticsDashboard = () => {
                   Corrélation entre biomarqueur et progression
                 </p>
               </div>
-              <div className="bg-emerald-100 p-2 rounded-xl">
-                <Activity className="w-5 h-5 text-emerald-600" />
-              </div>
+
             </div>
             
             <ResponsiveContainer width="100%" height={350}>
@@ -334,7 +330,7 @@ const AnalyticsDashboard = () => {
           </div>
 
           {/* Graphique C: HTA Comparatif */}
-          <div className="bg-white rounded-3xl shadow-xl border border-slate-100 p-6 hover:shadow-2xl transition-shadow">
+          <div className="bg-white rounded-3xl  border border-slate-100 p-6 hover:shadow-md transition-shadow">
             <div className="flex items-center justify-between mb-6">
               <div>
                 <h3 className="text-xl font-black text-slate-900 mb-1">
@@ -344,9 +340,7 @@ const AnalyticsDashboard = () => {
                   Comparaison Hypertendus vs Non-Hypertendus
                 </p>
               </div>
-              <div className="bg-purple-100 p-2 rounded-xl">
-                <Heart className="w-5 h-5 text-purple-600" />
-              </div>
+              
             </div>
             
             <ResponsiveContainer width="100%" height={350}>
@@ -392,7 +386,7 @@ const AnalyticsDashboard = () => {
           </div>
 
           {/* Statistiques Supplémentaires */}
-          <div className="bg-linear-to-br from-slate-900 via-blue-800 to-slate-900 rounded-3xl shadow-xl p-6 text-white">
+          <div className="bg-white rounded-2xl hover:shadow-md  border  border-slate-100 p-6 text-black">
             <div className="flex items-center justify-between mb-6">
               <div>
                 <h3 className="text-xl font-black mb-1">
@@ -402,22 +396,20 @@ const AnalyticsDashboard = () => {
                   Performance de détection IA
                 </p>
               </div>
-              <div className="bg-white/10 backdrop-blur-sm p-2 rounded-xl border border-white/20">
-                <Target className="w-5 h-5" />
-              </div>
+
             </div>
 
             <div className="space-y-4">
               {[
-                { metric: 'Précision', value: '94.2%', color: 'from-emerald-500 to-teal-400' },
-                { metric: 'Rappel (Recall)', value: '90.8%', color: 'from-blue-500 to-cyan-400' },
-                { metric: 'F1-Score', value: '92.4%', color: 'from-purple-500 to-pink-400' },
-                { metric: 'AUC-ROC', value: '0.96', color: 'from-orange-500 to-amber-400' }
+                { metric: 'Précision', value: '94.2%', color: 'bg-emerald-500 ' },
+                { metric: 'Rappel (Recall)', value: '90.8%', color: 'bg-yellow-500 ' },
+                { metric: 'F1-Score', value: '92.4%', color: 'bg-red-500 ' },
+                { metric: 'AUC-ROC', value: '0.96', color: 'bg-orange-500 ' }
               ].map((item, idx) => (
                 <div key={idx} className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-4 hover:bg-white/10 transition-colors">
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-sm font-bold text-blue-200">{item.metric}</span>
-                    <span className={`text-2xl font-black bg-linear-to-r ${item.color} bg-clip-text text-transparent`}>
+                    <span className="text-sm font-bold text-black">{item.metric}</span>
+                    <span className={`text-2xl font-black  ${item.color} bg-clip-text text-transparent`}>
                       {item.value}
                     </span>
                   </div>
@@ -433,7 +425,7 @@ const AnalyticsDashboard = () => {
 
             <div className="mt-6 p-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl">
               <div className="flex items-center space-x-3 mb-2">
-                <Activity className="w-5 h-5 text-emerald-400" />
+                {/* <Activity className="w-5 h-5 text-emerald-400" /> */}
                 <span className="font-bold text-sm">Algorithme</span>
               </div>
               <p className="text-xs text-blue-200 font-semibold">
@@ -444,7 +436,7 @@ const AnalyticsDashboard = () => {
         </div>
 
         {/* Section Cartographie du Bénin */}
-        <div className="bg-white rounded-3xl shadow-xl border border-slate-100 p-8">
+        <div className="bg-white rounded-2xl border border-slate-100 p-8">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8">
             <div>
               <h3 className="text-3xl font-black text-slate-900 mb-2">
@@ -560,7 +552,7 @@ const AnalyticsDashboard = () => {
               </div>
 
               {/* Top 3 Départements */}
-              <div className="bg-linear-to-br from-red-50 to-orange-50 rounded-2xl p-6 border-2 border-red-200">
+              <div className="bg-red-50  rounded-2xl p-6 border-2 border-red-200">
                 <h4 className="text-lg font-black text-slate-900 mb-4 flex items-center">
                   <AlertTriangle className="w-5 h-5 mr-2 text-red-600" />
                   Zones Prioritaires
@@ -601,7 +593,7 @@ const AnalyticsDashboard = () => {
 
               {/* Détails du département sélectionné */}
               {selectedDepartment && (
-                <div className="bg-linear-to-br from-blue-900 to-slate-900 rounded-2xl p-6 text-white shadow-2xl border-2 border-blue-700">
+                <div className="bg-linear-to-br from-blue-900 to-slate-900 rounded-2xl p-6 text-white shadow-md border-2 border-blue-700">
                   <h4 className="text-lg font-black mb-4 flex items-center">
                     <MapPin className="w-5 h-5 mr-2 text-blue-300" />
                     {selectedDepartment.nom}

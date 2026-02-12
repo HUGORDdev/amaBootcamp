@@ -8,7 +8,7 @@ import {
 
 const Footer = () => {
     return (
-        <footer className="bg-linear-to-br from-slate-900 via-blue-800 to-slate-900 text-white py-16 px-4 sm:px-6 lg:px-8">
+        <footer className="bg-linear-to-br from-slate-400 via-blue-800 to-slate-300 text-white py-16 px-4 sm:px-6 lg:px-8">
             <div className="max-w-7xl mx-auto">
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
                     {/* Brand */}
@@ -87,7 +87,7 @@ const Footer = () => {
                 <div className="border-t border-white/10 pt-8">
                     <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
                         <p className="text-blue-200 font-medium text-sm">
-                            © 2026 RenalCare. Tous droits réservés. Fait avec <Heart className="inline w-4 h-4 text-rose-400 fill-current" /> au Bénin
+                            © 2026 RenalCare. Tous droits réservés. Conçu avec <Heart className="w-4 h-4 text-red-500 inline-block mx-1" /> par l'équipe RenalCare.
                         </p>
                         <div className="flex items-center space-x-4 text-sm font-semibold">
                             <a href="mailto:contact@renalcare.bj" className="text-blue-200 hover:text-white transition-colors">

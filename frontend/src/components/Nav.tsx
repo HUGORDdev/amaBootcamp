@@ -69,15 +69,15 @@ const Nav = ({routeFocus = 0}) => {
             {isMenuOpen && (
                 <div className="md:hidden bg-white border-t border-slate-100 shadow-xl animate-slideDown">
                     <div className="px-4 py-4 space-y-2">
-                        {['Accueil', 'Cartographie', 'Évaluation'].map((item) => (
-                            <a
+                        {['Accueil', 'analytics', 'Évaluation'].map((item) => (
+                            <Link
                                 key={item}
-                                href={`#${item.toLowerCase()}`}
+                                to={`/${item.toLowerCase()}`}
                                 className="block px-4 py-3 rounded-xl font-semibold text-slate-700 hover:bg-blue-50 hover:text-blue-700 transition-colors"
                                 onClick={() => setIsMenuOpen(false)}
                             >
                                 {item}
-                            </a>
+                            </Link>
                         ))}
                     </div>
                 </div>

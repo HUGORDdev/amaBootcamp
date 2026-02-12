@@ -1,42 +1,50 @@
-import React, { useState, useEffect } from 'react';
-import { 
-  Activity, 
-  Heart, 
-  Shield, 
-  Droplet, 
-  Apple, 
+import {
+  Activity,
+  Heart,
+  Shield,
+  Droplet,
+  Apple,
   TrendingUp,
-  Brain,
-  Users,
   ChevronRight,
-  AlertCircle,
   Stethoscope,
-  
   CheckCircle2,
-  Target,
-  Sparkles,
   HandHeart
 } from 'lucide-react';
 import Footer from '../components/Footer';
 import Nav from '../components/Nav';
+import { Link } from 'react-router-dom';
+import { ToastContainer, toast,Slide } from 'react-toastify';
+
 
 const HomePage = () => {
+  const notify = () => toast.info('cette fonctionnaliter est encore en developpement :)', {
+    position: "top-center",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: false,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "light",
+    transition: Slide,
+  });;
+
 
   return (
     <div className="min-h-screen bg-linear-to-br from-slate-50 via-blue-50/30 to-emerald-50/20 font-sans">
       {/* Navbar */}
-      <Nav/>
+      <Nav />
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        
-        
+
+
         <div className="max-w-7xl mx-auto relative">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
             <div className="space-y-8 animate-fadeIn">
-              
-              
+
+
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-black leading-tight">
                 <span className="bg-linear-to-r from-slate-900 via-blue-800 to-slate-900 bg-clip-text text-transparent">
                   Protégez vos
@@ -52,7 +60,7 @@ const HomePage = () => {
               </h1>
 
               <p className="text-xl text-slate-600 leading-relaxed font-medium max-w-xl">
-                L'insuffisance rénale chronique est <span className="text-blue-700 font-bold">silencieuse</span> mais détectable. 
+                L'insuffisance rénale chronique est <span className="text-blue-700 font-bold">silencieuse</span> mais détectable.
                 Notre IA analyse vos données de santé pour <span className="text-emerald-600 font-bold">prévenir les risques</span> avant qu'il ne soit trop tard.
               </p>
 
@@ -61,10 +69,14 @@ const HomePage = () => {
                   href="#evaluation"
                   className="group relative inline-flex items-center justify-center px-8 py-4 rounded-2xl font-bold text-lg text-white bg-[#28A745] shadow-xl    transition-all duration-300 transform hover:scale-105"
                 >
-                  <span className="relative z-10 flex items-center">
+                  {/* <span /> */}
+                  <Link to={'/analytics'}
+                    className="relative z-10 flex items-center"
+                  >
                     Évaluer Mon Risque
                     <ChevronRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                  </span>
+                  </Link>
+                  {/* </span> */}
                 </a>
 
                 <a
@@ -102,7 +114,7 @@ const HomePage = () => {
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-blue-900/40 via-transparent to-transparent"></div>
-                
+
                 {/* Floating Badge */}
                 <div className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-xl rounded-2xl p-5 shadow-2xl border border-blue-100">
                   <div className="flex items-center space-x-4">
@@ -126,7 +138,7 @@ const HomePage = () => {
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-linear-to-b from-white to-slate-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            
+
             <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-4">
               L'Insuffisance Rénale Chronique
             </h2>
@@ -187,7 +199,7 @@ const HomePage = () => {
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-linear-to-br from-emerald-50 via-blue-50/30 to-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            
+
             <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-4">
               Protégez Vos Reins Naturellement
             </h2>
@@ -204,7 +216,7 @@ const HomePage = () => {
                 <Droplet className="w-16 h-16 mb-6" strokeWidth={1.5} />
                 <h3 className="text-3xl font-black mb-4">Hydratation Optimale</h3>
                 <p className="text-blue-50 text-lg leading-relaxed mb-6 font-medium">
-                  Buvez 1,5 à 2 litres d'eau par jour pour aider vos reins à éliminer les toxines efficacement. 
+                  Buvez 1,5 à 2 litres d'eau par jour pour aider vos reins à éliminer les toxines efficacement.
                   L'eau reste la meilleure boisson pour vos reins.
                 </p>
                 <div className="space-y-3">
@@ -316,7 +328,7 @@ const HomePage = () => {
                   </div>
                   <div className="flex-1">
                     <div className="flex items-center space-x-3 mb-2">
-                      
+
                       <h3 className="text-xl font-black">{item.title}</h3>
                     </div>
                     <p className="text-blue-100 font-medium leading-relaxed">{item.description}</p>
@@ -333,7 +345,7 @@ const HomePage = () => {
                   alt="IA Médicale"
                   className="w-full h-96 object-cover rounded-2xl shadow-2xl"
                 />
-                
+
                 {/* Floating Stats */}
                 <div className="absolute -top-6 -right-6 bg-white text-slate-900 rounded-2xl p-5 shadow-2xl border-1 border-[#ccc]">
                   <div className="text-4xl font-black bg-blue-600 bg-clip-text text-transparent mb-1">
@@ -369,7 +381,7 @@ const HomePage = () => {
         <div className="max-w-7xl mx-auto">
           <div className="bg-linear-to-br from-rose-600 via-orange-500 to-amber-500 rounded-3xl overflow-hidden shadow-2xl">
             <div className="grid lg:grid-cols-2 gap-8 items-center">
-              
+
               <div className="relative h-full min-h-100">
                 <img
                   src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=800"
@@ -391,7 +403,7 @@ const HomePage = () => {
                 </h2>
 
                 <p className="text-xl text-rose-50 leading-relaxed mb-8 font-medium">
-                  Au Bénin, des milliers de patients n'ont pas accès aux soins rénaux. 
+                  Au Bénin, des milliers de patients n'ont pas accès aux soins rénaux.
                   Votre don peut changer une vie en finançant des dépistages gratuits et des traitements pour les plus démunis.
                 </p>
 
@@ -412,6 +424,7 @@ const HomePage = () => {
 
                 <div className="flex flex-col sm:flex-row gap-4">
                   <a
+                    onClick={() => notify()}
                     href="#don"
                     className="inline-flex items-center justify-center px-8 py-4 rounded-2xl font-black text-lg bg-white text-rose-600 hover:bg-rose-50 transition-all duration-300 transform hover:scale-105 shadow-xl"
                   >
@@ -420,6 +433,8 @@ const HomePage = () => {
                   </a>
                   <a
                     href="#en-savoir-plus"
+                    onClick={() => notify()}
+
                     className="inline-flex items-center justify-center px-8 py-4 rounded-2xl font-bold text-lg text-white border-2 border-white/30 hover:bg-white/10 transition-all duration-300"
                   >
                     En Savoir Plus
@@ -429,11 +444,24 @@ const HomePage = () => {
             </div>
           </div>
         </div>
+        <ToastContainer
+          position="top-center"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick={false}
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+         transition={Slide} 
+          />
       </section>
 
       {/* Footer */}
-     
-    <Footer/>
+
+      <Footer />
     </div>
   );
 };

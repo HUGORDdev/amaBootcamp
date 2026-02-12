@@ -30,8 +30,8 @@ const HomePage = () => {
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
         
-        <div className="absolute top-20 right-0 w-96 h-96 bg-linear-to-br from-blue-400/20 to-emerald-400/20 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 left-0 w-80 h-80 bg-linear-to-tr from-emerald-400/15 to-blue-400/15 rounded-full blur-3xl"></div>
+        {/* <div className="absolute top-20 right-0 w-96 h-96 bg-linear-to-br from-blue-400/20 to-emerald-400/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-linear-to-tr from-emerald-400/15 to-blue-400/15 rounded-full blur-3xl"></div> */}
         
         <div className="max-w-7xl mx-auto relative">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -89,7 +89,7 @@ const HomePage = () => {
                   { value: '24/7', label: 'Disponibilité' }
                 ].map((stat) => (
                   <div key={stat.label} className="text-center">
-                    <div className="text-3xl font-black bg-linear-to-r from-blue-600 to-emerald-500 bg-clip-text text-transparent">
+                    <div className="text-3xl font-black bg-blue-600 bg-clip-text text-transparent">
                       {stat.value}
                     </div>
                     <div className="text-xs text-slate-600 font-semibold mt-1">{stat.label}</div>
@@ -132,10 +132,10 @@ const HomePage = () => {
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-linear-to-b from-white to-slate-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center space-x-2 bg-red-100 px-5 py-2.5 rounded-full mb-6">
+            {/* <div className="inline-flex items-center space-x-2 bg-red-100 px-5 py-2.5 rounded-full mb-6">
               <AlertCircle className="w-5 h-5 text-red-600" />
               <span className="text-sm font-bold text-red-700">Connaître les Dangers</span>
-            </div>
+            </div> */}
             <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-4">
               L'Insuffisance Rénale Chronique
             </h2>
@@ -148,21 +148,18 @@ const HomePage = () => {
             {[
               {
                 icon: <Activity className="w-8 h-8" />,
-                color: 'from-red-500 to-orange-500',
                 title: 'Maladie Silencieuse',
                 description: '90% des personnes atteintes ne ressentent aucun symptôme aux premiers stades',
                 image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=400'
               },
               {
                 icon: <Heart className="w-8 h-8" />,
-                color: 'from-purple-500 to-pink-500',
                 title: 'Complications Cardiaques',
                 description: 'Risque multiplié par 3 de maladies cardiovasculaires et d\'AVC',
                 image: 'https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?w=400'
               },
               {
                 icon: <TrendingUp className="w-8 h-8" />,
-                color: 'from-blue-500 to-cyan-500',
                 title: 'Progression Rapide',
                 description: 'Sans traitement, la fonction rénale peut chuter de 50% en quelques années',
                 image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=400'
@@ -201,10 +198,7 @@ const HomePage = () => {
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-linear-to-br from-emerald-50 via-blue-50/30 to-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center space-x-2 bg-emerald-100 px-5 py-2.5 rounded-full mb-6">
-              <Shield className="w-5 h-5 text-emerald-600" />
-              <span className="text-sm font-bold text-emerald-700">Prévention & Bonnes Pratiques</span>
-            </div>
+            
             <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-4">
               Protégez Vos Reins Naturellement
             </h2>

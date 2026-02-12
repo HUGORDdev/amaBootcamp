@@ -13,12 +13,12 @@ import {
   ResponsiveContainer,
   Cell
 } from 'recharts';
-import {
-  ComposableMap,
-  Geographies,
-  Geography,
-  ZoomableGroup
-} from 'react-simple-maps';
+// import {
+//   ComposableMap,
+//   Geographies,
+//   Geography,
+//   ZoomableGroup
+// } from 'react-simple-maps';
 import {
   Activity,
   TrendingUp,
@@ -462,7 +462,7 @@ const AnalyticsDashboard = () => {
 
           <div className="grid lg:grid-cols-3 gap-8">
             {/* Carte */}
-            <div className="lg:col-span-2 bg-slate-50 rounded-2xl p-6 border-2 border-slate-200">
+            {/* <div className="lg:col-span-2 bg-slate-50 rounded-2xl p-6 border-2 border-slate-200">
               <ComposableMap
                 projection="geoMercator"
                 projectionConfig={{
@@ -519,12 +519,12 @@ const AnalyticsDashboard = () => {
               </ComposableMap>
 
               {/* Tooltip */}
-              {tooltipContent && (
+             {/* {tooltipContent && (
                 <div className="mt-4 p-4 bg-blue-900 text-white rounded-2xl shadow-xl border-2 border-blue-700">
                   <p className="font-bold text-sm">{tooltipContent}</p>
                 </div>
               )}
-            </div>
+            </div> */}
 
             {/* Légende et Stats */}
             <div className="space-y-6">

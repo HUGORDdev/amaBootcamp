@@ -37,10 +37,7 @@ const HomePage = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
             <div className="space-y-8 animate-fadeIn">
-              <div className="inline-flex items-center space-x-2 bg-blue-100/80 backdrop-blur-sm px-5 py-2.5 rounded-full border border-blue-200/50 shadow-sm">
-                <Sparkles className="w-4 h-4 text-blue-600" />
-                <span className="text-sm font-bold text-blue-700">Détection Précoce par IA</span>
-              </div>
+              
               
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-black leading-tight">
                 <span className="bg-linear-to-r from-slate-900 via-blue-800 to-slate-900 bg-clip-text text-transparent">

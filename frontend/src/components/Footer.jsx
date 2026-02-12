@@ -87,7 +87,7 @@ const Footer = () => {
                 <div className="border-t border-white/10 pt-8">
                     <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
                         <p className="text-blue-200 font-medium text-sm">
-                            © 2024 RenalCare. Tous droits réservés. Fait avec <Heart className="inline w-4 h-4 text-rose-400 fill-current" /> au Bénin
+                            © 2026 RenalCare. Tous droits réservés. Fait avec <Heart className="inline w-4 h-4 text-rose-400 fill-current" /> au Bénin
                         </p>
                         <div className="flex items-center space-x-4 text-sm font-semibold">
                             <a href="mailto:contact@renalcare.bj" className="text-blue-200 hover:text-white transition-colors">

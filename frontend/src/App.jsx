@@ -1,10 +1,17 @@
-import React from 'react'
-import HomePage from './pages/Homepage'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Homepage from './pages/Homepage.jsx';
+import AnalyticsDashboard from './pages/AnalyticsDashboard.jsx';
+// import Analytics from './pages/Analytics';
 
-const App = () => {
+function App() {
   return (
-    <HomePage/>
-  )
+    <Router>
+      <Routes>
+        <Route path="/accueil" element={<Homepage/>} />
+        <Route path="/analytics" element={<AnalyticsDashboard/>} />
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;

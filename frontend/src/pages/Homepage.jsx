@@ -11,104 +11,25 @@ import {
   ChevronRight,
   AlertCircle,
   Stethoscope,
-  Menu,
-  X,
+  
   CheckCircle2,
   Target,
   Sparkles,
   HandHeart
 } from 'lucide-react';
 import Footer from '../components/Footer';
+import Nav from '../components/Nav';
 
 const HomePage = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   return (
     <div className="min-h-screen bg-linear-to-br from-slate-50 via-blue-50/30 to-emerald-50/20 font-sans">
       {/* Navbar */}
-      <nav 
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled 
-            ? 'bg-white/95 backdrop-blur-xl shadow-lg shadow-blue-100/50' 
-            : 'bg-white/80 backdrop-blur-md'
-        }`}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20">
-            {/* Logo */}
-            <div className="flex items-center space-x-3 group cursor-pointer">
-              <div className="relative">
-                <div className="absolute inset-0 bg-blue-600  rounded-2xl blur-lg opacity-40 group-hover:opacity-60 transition-opacity"></div>
-                <div className="relative p-2.5 rounded-2xl transform group-hover:scale-105 transition-transform">
-                  <Activity className="w-7 h-7  text-blue-600" strokeWidth={2.5} />
-                </div>
-              </div>
-              <div>
-                <h1 className="text-2xl font-bold  bg-blue-600 bg-clip-text text-transparent">
-                  RenalCare
-                </h1>
-                <p className="text-xs text-slate-500 font-medium -mt-0.5">Prévention CKD</p>
-              </div>
-            </div>
-
-            {/* Desktop Menu */}
-            <div className="hidden md:flex items-center space-x-1">
-              {['Accueil', 'Cartographie', 'Évaluation'].map((item, idx) => (
-                <a
-                  key={item}
-                  href={`#${item.toLowerCase()}`}
-                  className={`px-5 py-2.5 rounded-xl font-semibold text-sm transition-all duration-300 ${
-                    idx === 0
-                      ? 'bg-blue-600  text-white shadow-lg shadow-blue-200 hover:shadow-xl hover:shadow-blue-300'
-                      : 'text-slate-700 hover:bg-blue-50 hover:text-blue-700'
-                  }`}
-                >
-                  {item}
-                </a>
-              ))}
-            </div>
-
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden p-2 rounded-xl hover:bg-blue-50 transition-colors"
-            >
-              {isMenuOpen ? <X className="w-6 h-6 text-slate-700" /> : <Menu className="w-6 h-6 text-slate-700" />}
-            </button>
-          </div>
-        </div>
-
-        {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className="md:hidden bg-white border-t border-slate-100 shadow-xl animate-slideDown">
-            <div className="px-4 py-4 space-y-2">
-              {['Accueil', 'Cartographie', 'Évaluation'].map((item) => (
-                <a
-                  key={item}
-                  href={`#${item.toLowerCase()}`}
-                  className="block px-4 py-3 rounded-xl font-semibold text-slate-700 hover:bg-blue-50 hover:text-blue-700 transition-colors"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item}
-                </a>
-              ))}
-            </div>
-          </div>
-        )}
-      </nav>
+      <Nav/>
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        {/* Background Decorations */}
+        
         <div className="absolute top-20 right-0 w-96 h-96 bg-linear-to-br from-blue-400/20 to-emerald-400/20 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 left-0 w-80 h-80 bg-linear-to-tr from-emerald-400/15 to-blue-400/15 rounded-full blur-3xl"></div>
         
@@ -355,7 +276,7 @@ const HomePage = () => {
       </section>
 
       {/* AI Section */}
-      <section id="comment-ca-marche" className="py-20 px-4 sm:px-6 lg:px-8 bg-linear-to-br from-slate-900 via-blue-900 to-slate-900 text-white relative overflow-hidden">
+      <section id="comment-ca-marche" className="py-20 px-4 sm:px-6 lg:px-8 bg-linear-to-br from-slate-900 via-blue-800 to-slate-900 text-white relative overflow-hidden">
         {/* Animated Background */}
         <div className="absolute inset-0 opacity-20">
           <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500 rounded-full blur-3xl animate-pulse"></div>
@@ -409,14 +330,14 @@ const HomePage = () => {
                   key={idx}
                   className="group flex items-start space-x-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 hover:scale-105"
                 >
-                  <div className="flex-shrink-0">
-                    <div className="text-5xl font-black text-blue-500/30 group-hover:text-blue-400/50 transition-colors">
+                  <div className="shrink-0">
+                    <div className="text-5xl font-black text-white group-hover:text-blue-400/50 transition-colors">
                       {item.step}
                     </div>
                   </div>
                   <div className="flex-1">
                     <div className="flex items-center space-x-3 mb-2">
-                      <div className="bg-linear-to-br from-blue-500 to-emerald-500 p-2 rounded-lg">
+                      <div className="bg-[#28A745]/90 p-2 rounded-lg">
                         {item.icon}
                       </div>
                       <h3 className="text-xl font-black">{item.title}</h3>
@@ -437,7 +358,7 @@ const HomePage = () => {
                 />
                 
                 {/* Floating Stats */}
-                <div className="absolute -top-6 -right-6 bg-white text-slate-900 rounded-2xl p-5 shadow-2xl border-4 border-slate-900">
+                <div className="absolute -top-6 -right-6 bg-white text-slate-900 rounded-2xl p-5 shadow-2xl border-1 border-[#ccc]">
                   <div className="text-4xl font-black bg-blue-600 bg-clip-text text-transparent mb-1">
                     95.7%
                   </div>
@@ -472,8 +393,8 @@ const HomePage = () => {
         <div className="max-w-7xl mx-auto">
           <div className="bg-linear-to-br from-rose-600 via-orange-500 to-amber-500 rounded-3xl overflow-hidden shadow-2xl">
             <div className="grid lg:grid-cols-2 gap-8 items-center">
-              {/* Image */}
-              <div className="relative h-full min-h-[400px]">
+              
+              <div className="relative h-full min-h-100">
                 <img
                   src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=800"
                   alt="Solidarité"

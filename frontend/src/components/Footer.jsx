@@ -15,7 +15,7 @@ const Footer = () => {
                     <div>
                         <div className="flex items-center space-x-3 mb-6">
                             <div className="relative">
-                                <div className="absolute inset-0 bg-blue-600  rounded-2xl blur-lg opacity-40 group-hover:opacity-60 transition-opacity"></div>
+                                <div className="absolute inset-0 bg-blue-800  rounded-2xl blur-lg opacity-40 group-hover:opacity-60 transition-opacity"></div>
                                 <div className="relative p-2.5 rounded-2xl transform group-hover:scale-105 transition-transform">
                                     <Activity className="w-7 h-7  text-white" strokeWidth={2.5} />
                                 </div>

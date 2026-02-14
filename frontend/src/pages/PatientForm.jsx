@@ -182,7 +182,7 @@ const PatientForm = () => {
                 ]}
               />
               <SelectField
-                label="Statut Tabagique"
+                label="consommation de Tabac"
                 name="tabac"
                 errors={errors}
                 formData={formData}

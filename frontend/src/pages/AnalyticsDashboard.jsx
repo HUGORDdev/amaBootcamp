@@ -27,12 +27,12 @@ import {
   Info
 } from 'lucide-react';
 
-import {ageStadeData, creatinineStadeData, htaComparisonData, departmentData, beninGeoJSON} from '../constants/constant';
+import { ageStadeData, creatinineStadeData, htaComparisonData, departmentData, beninGeoJSON } from '../constants/constant';
 import Footer from '../components/Footer';
 import Nav from '../components/Nav';
+import BeninMap from '../components/BeninMaps';
 
 
-// ============= COMPOSANT PRINCIPAL =============
 
 const AnalyticsDashboard = () => {
   const [selectedDepartment, setSelectedDepartment] = useState(null);
@@ -42,11 +42,11 @@ const AnalyticsDashboard = () => {
   const kpis = useMemo(() => {
     const totalPatients = departmentData.reduce((sum, d) => sum + d.patients, 0);
     const totalRisqueElevé = departmentData.reduce((sum, d) => sum + d.risqueElevé, 0);
-    const patientsHTA = 205; 
+    const patientsHTA = 205;
     const patientsSansHTA = 104;
     const casHtaRisque = 95;
     const casSansHtaRisque = 28;
-    
+
     return {
       pourcentageRisqueElevé: ((totalRisqueElevé / totalPatients) * 100).toFixed(1),
       ratioHTA: (casHtaRisque / patientsHTA / (casSansHtaRisque / patientsSansHTA)).toFixed(2),
@@ -57,17 +57,17 @@ const AnalyticsDashboard = () => {
 
   // Fonction pour obtenir la couleur selon le risque
   const getColorScale = (scoreMoyen) => {
-    if (scoreMoyen >= 0.65) return '#DC2626'; 
-    if (scoreMoyen >= 0.60) return '#EF4444'; 
-    if (scoreMoyen >= 0.55) return '#F97316'; 
-    if (scoreMoyen >= 0.50) return '#F59E0B'; 
-    if (scoreMoyen >= 0.45) return '#3B82F6'; 
-    return '#60A5FA'; 
+    if (scoreMoyen >= 0.65) return '#DC2626';
+    if (scoreMoyen >= 0.60) return '#EF4444';
+    if (scoreMoyen >= 0.55) return '#F97316';
+    if (scoreMoyen >= 0.50) return '#F59E0B';
+    if (scoreMoyen >= 0.45) return '#3B82F6';
+    return '#60A5FA';
   };
 
   return (
     <div className="min-h-screen bg-linear-to-br from-slate-50 via-blue-50/30 to-emerald-50/20  ">p-4
-      <Nav routeFocus={1}/>
+      <Nav routeFocus={1} />
       <div className=" mt-32 max-w-450 mx-auto space-y-8 mb-5 md:p-8">
         {/* Header */}
         <div className="bg-white rounded-3xl  border border-slate-100 p-8">
@@ -81,7 +81,7 @@ const AnalyticsDashboard = () => {
               </p>
             </div>
             <div className="hidden md:flex items-center space-x-2 bg-emerald-100 px-5 py-3 rounded-2xl border border-emerald-200">
-              
+
               <span className="text-sm font-bold text-emerald-700">Données  2026</span>
             </div>
           </div>
@@ -184,7 +184,7 @@ const AnalyticsDashboard = () => {
 
         {/* Section Visualisations - Grille 2x2 */}
         <div className="grid lg:grid-cols-2 gap-6">
-          
+
           {/* Graphique A: Âge x Stade (Stacked Bar) */}
           <div className="bg-white rounded-2xl border border-slate-100 p-6 hover:shadow-md transition-shadow">
             <div className="flex items-center justify-between mb-6">
@@ -196,32 +196,32 @@ const AnalyticsDashboard = () => {
                   Progression de la maladie selon les tranches d'âge
                 </p>
               </div>
-              
+
             </div>
-            
+
             <ResponsiveContainer width="100%" height={350}>
               <BarChart data={ageStadeData}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#E2E8F0" />
-                <XAxis 
-                  dataKey="ageGroup" 
+                <XAxis
+                  dataKey="ageGroup"
                   tick={{ fill: '#475569', fontWeight: 600, fontSize: 12 }}
                   stroke="#94A3B8"
                 />
-                <YAxis 
+                <YAxis
                   tick={{ fill: '#475569', fontWeight: 600, fontSize: 12 }}
                   stroke="#94A3B8"
                   label={{ value: 'Nombre de Patients', angle: -90, position: 'insideLeft', style: { fill: '#475569', fontWeight: 700 } }}
                 />
-                <Tooltip 
-                  contentStyle={{ 
-                    backgroundColor: 'rgba(255, 255, 255, 0.98)', 
+                <Tooltip
+                  contentStyle={{
+                    backgroundColor: 'rgba(255, 255, 255, 0.98)',
                     border: '2px solid #E2E8F0',
                     borderRadius: '16px',
                     padding: '12px',
                     fontWeight: 600
                   }}
                 />
-                <Legend 
+                <Legend
                   wrapperStyle={{ paddingTop: '20px', fontWeight: 700 }}
                   iconType="circle"
                 />
@@ -256,45 +256,45 @@ const AnalyticsDashboard = () => {
               </div>
 
             </div>
-            
+
             <ResponsiveContainer width="100%" height={350}>
               <ComposedChart data={creatinineStadeData}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#E2E8F0" />
-                <XAxis 
-                  dataKey="stade" 
+                <XAxis
+                  dataKey="stade"
                   tick={{ fill: '#475569', fontWeight: 600, fontSize: 12 }}
                   stroke="#94A3B8"
                 />
-                <YAxis 
+                <YAxis
                   yAxisId="left"
                   tick={{ fill: '#475569', fontWeight: 600, fontSize: 12 }}
                   stroke="#94A3B8"
                   label={{ value: 'Créatinine (mg/L)', angle: -90, position: 'insideLeft', style: { fill: '#475569', fontWeight: 700 } }}
                 />
-                <YAxis 
+                <YAxis
                   yAxisId="right"
                   orientation="right"
                   tick={{ fill: '#475569', fontWeight: 600, fontSize: 12 }}
                   stroke="#94A3B8"
                   label={{ value: 'Patients', angle: 90, position: 'insideRight', style: { fill: '#475569', fontWeight: 700 } }}
                 />
-                <Tooltip 
-                  contentStyle={{ 
-                    backgroundColor: 'rgba(255, 255, 255, 0.98)', 
+                <Tooltip
+                  contentStyle={{
+                    backgroundColor: 'rgba(255, 255, 255, 0.98)',
                     border: '2px solid #E2E8F0',
                     borderRadius: '16px',
                     padding: '12px',
                     fontWeight: 600
                   }}
                 />
-                <Legend 
+                <Legend
                   wrapperStyle={{ paddingTop: '20px', fontWeight: 700 }}
                   iconType="circle"
                 />
-                <Bar 
+                <Bar
                   yAxisId="right"
-                  dataKey="patients" 
-                  fill="#60A5FA" 
+                  dataKey="patients"
+                  fill="#60A5FA"
                   radius={[8, 8, 0, 0]}
                   name="Nombre de Patients"
                 >
@@ -302,11 +302,11 @@ const AnalyticsDashboard = () => {
                     <Cell key={`cell-${index}`} fill={`hsl(${220 - index * 20}, 70%, 60%)`} />
                   ))}
                 </Bar>
-                <Line 
+                <Line
                   yAxisId="left"
-                  type="monotone" 
-                  dataKey="creatinine" 
-                  stroke="#DC2626" 
+                  type="monotone"
+                  dataKey="creatinine"
+                  stroke="#DC2626"
                   strokeWidth={4}
                   dot={{ fill: '#DC2626', r: 6 }}
                   activeDot={{ r: 8 }}
@@ -336,32 +336,32 @@ const AnalyticsDashboard = () => {
                   Comparaison Hypertendus vs Non-Hypertendus
                 </p>
               </div>
-              
+
             </div>
-            
+
             <ResponsiveContainer width="100%" height={350}>
               <BarChart data={htaComparisonData}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#E2E8F0" />
-                <XAxis 
-                  dataKey="category" 
+                <XAxis
+                  dataKey="category"
                   tick={{ fill: '#475569', fontWeight: 600, fontSize: 12 }}
                   stroke="#94A3B8"
                 />
-                <YAxis 
+                <YAxis
                   tick={{ fill: '#475569', fontWeight: 600, fontSize: 12 }}
                   stroke="#94A3B8"
                   label={{ value: 'Nombre de Patients', angle: -90, position: 'insideLeft', style: { fill: '#475569', fontWeight: 700 } }}
                 />
-                <Tooltip 
-                  contentStyle={{ 
-                    backgroundColor: 'rgba(255, 255, 255, 0.98)', 
+                <Tooltip
+                  contentStyle={{
+                    backgroundColor: 'rgba(255, 255, 255, 0.98)',
                     border: '2px solid #E2E8F0',
                     borderRadius: '16px',
                     padding: '12px',
                     fontWeight: 600
                   }}
                 />
-                <Legend 
+                <Legend
                   wrapperStyle={{ paddingTop: '20px', fontWeight: 700 }}
                   iconType="circle"
                 />
@@ -410,7 +410,7 @@ const AnalyticsDashboard = () => {
                     </span>
                   </div>
                   <div className="h-2 bg-white/10 rounded-full overflow-hidden">
-                    <div 
+                    <div
                       className={`h-full bg-linear-to-r ${item.color} rounded-full transition-all duration-1000`}
                       style={{ width: item.value }}
                     ></div>
@@ -450,69 +450,15 @@ const AnalyticsDashboard = () => {
 
           <div className="grid lg:grid-cols-3 gap-8">
             {/* Carte */}
-            {/* <div className="lg:col-span-2 bg-slate-50 rounded-2xl p-6 border-2 border-slate-200">
-              <ComposableMap
-                projection="geoMercator"
-                projectionConfig={{
-                  scale: 3000,
-                  center: [2.3, 9.3]
-                }}
-                className="w-full h-150"
-              >
-                <ZoomableGroup>
-                  <Geographies geography={beninGeoJSON}>
-                    {({ geographies }) =>
-                      geographies.map((geo) => {
-                        const deptData = departmentData.find(d => d.nom === geo.properties.name);
-                        const fillColor = deptData ? getColorScale(deptData.scoreMoyen) : '#E2E8F0';
-                        
-                        return (
-                          <Geography
-                            key={geo.rsmKey}
-                            geography={geo}
-                            fill={fillColor}
-                            stroke="#FFFFFF"
-                            strokeWidth={2}
-                            style={{
-                              default: { outline: 'none' },
-                              hover: { 
-                                fill: '#1E40AF', 
-                                outline: 'none',
-                                cursor: 'pointer',
-                                transition: 'all 0.3s'
-                              },
-                              pressed: { outline: 'none' }
-                            }}
-                            onMouseEnter={() => {
-                              if (deptData) {
-                                setTooltipContent(
-                                  `${deptData.nom}: ${deptData.risqueElevé} patients à risque élevé (Score: ${(deptData.scoreMoyen * 100).toFixed(0)}%)`
-                                );
-                              }
-                            }}
-                            onMouseLeave={() => {
-                              setTooltipContent('');
-                            }}
-                            onClick={() => {
-                              if (deptData) {
-                                setSelectedDepartment(deptData);
-                              }
-                            }}
-                          />
-                        );
-                      })
-                    }
-                  </Geographies>
-                </ZoomableGroup>
-              </ComposableMap>
-
+            <div className="lg:col-span-2 bg-slate-50 rounded-2xl overflow-hidden  border-2 border-slate-200">
+              <BeninMap />
               {/* Tooltip */}
-             {/* {tooltipContent && (
+              {tooltipContent && (
                 <div className="mt-4 p-4 bg-blue-900 text-white rounded-2xl shadow-xl border-2 border-blue-700">
                   <p className="font-bold text-sm">{tooltipContent}</p>
                 </div>
               )}
-            </div> */}
+            </div>
 
             {/* Légende et Stats */}
             <div className="space-y-6">
@@ -524,18 +470,17 @@ const AnalyticsDashboard = () => {
                 </h4>
                 <div className="space-y-3">
                   {[
-                    { label: 'Très Élevé', range: '≥ 65%', color: '#DC2626' },
-                    { label: 'Élevé', range: '60-64%', color: '#EF4444' },
-                    { label: 'Modéré', range: '55-59%', color: '#F97316' },
-                    { label: 'Faible', range: '50-54%', color: '#F59E0B' },
-                    { label: 'Très Faible', range: '45-49%', color: '#3B82F6' },
-                    { label: 'Minimal', range: '< 45%', color: '#60A5FA' }
+                    // { label: 'Très Élevé', range: '≥ 65%', color: '#DC2626' },
+                    { label: 'Élevé', range: 'Élevé (> 25%)', color: 'bg-red-500' },
+                    { label: 'Modéré', range: 'Modéré (15-25%)', color: 'bg-orange-400' }, 
+                    { label: 'Faible', range: 'Faible (< 15%)', color: 'bg-green-500' },
+                    // { label: 'Très Faible', range: '45-49%', color: '#3B82F6' },
+                    // { label: 'Minimal', range: '< 45%', color: '#60A5FA' }
                   ].map((item) => (
                     <div key={item.label} className="flex items-center justify-between">
                       <div className="flex items-center space-x-3">
-                        <div 
-                          className="w-8 h-8 rounded-lg shadow-md border-2 border-white"
-                          style={{ backgroundColor: item.color }}
+                        <div
+                          className={`w-8 h-8 rounded-lg shadow-md border-2 border-white  ${item.color}`}
                         ></div>
                         <span className="text-sm font-bold text-slate-700">{item.label}</span>
                       </div>
@@ -577,7 +522,7 @@ const AnalyticsDashboard = () => {
                           </span>
                         </div>
                         <div className="mt-2 h-2 bg-red-100 rounded-full overflow-hidden">
-                          <div 
+                          <div
                             className="h-full bg-linear-to-r from-red-600 to-orange-500 rounded-full"
                             style={{ width: `${dept.scoreMoyen * 100}%` }}
                           ></div>
@@ -619,7 +564,7 @@ const AnalyticsDashboard = () => {
         {/* Footer Analytics */}
 
       </div>
-        <Footer/>
+      <Footer />
     </div>
   );
 };

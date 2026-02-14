@@ -182,7 +182,7 @@ const AnalyticsDashboard = () => {
           </div>
         </div>
 
-        {/* Section Visualisations - Grille 2x2 */}
+        {/*  Grille 2x2 */}
         <div className="grid lg:grid-cols-2 gap-6">
 
           {/* Graphique A: Âge x Stade (Stacked Bar) */}
@@ -560,9 +560,6 @@ const AnalyticsDashboard = () => {
             </div>
           </div>
         </div>
-
-        {/* Footer Analytics */}
-
       </div>
       <Footer />
     </div>

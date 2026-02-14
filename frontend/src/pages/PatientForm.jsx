@@ -5,7 +5,7 @@ import InputField from '../components/InputField';
 import SelectField from '../components/SelectField';
 import RadioGroup from '../components/RadioGroup';
 
-const PatientForm = ({ update }) => {
+const PatientForm = ({ Update }) => {
   const [formData, setFormData] = useState({
     age: '',
     sexe: '',
@@ -121,7 +121,7 @@ const PatientForm = ({ update }) => {
       const data = await res.json();
       setResult(data);
       setIsSuccess(true);
-      update(JSON.stringify(data))
+      Update(data)
 
 
     } catch (e) {

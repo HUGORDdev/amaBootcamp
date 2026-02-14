@@ -2,6 +2,7 @@ import React from 'react';
 import { AlertTriangle, CheckCircle, Activity, Info, FileText } from 'lucide-react';
 
 const ResultView = ({ data, onReset }) => {
+     data = typeof data === 'string' ? JSON.stringify(data) : data;
     if (!data) return null;
 
     // Calculer la couleur en fonction du score

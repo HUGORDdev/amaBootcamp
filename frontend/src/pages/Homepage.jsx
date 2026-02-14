@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 import Footer from '../components/Footer';
 import Nav from '../components/Nav';
+import ContactForm from '../components/ContactForm';
 import { Link } from 'react-router-dom';
 import { ToastContainer, toast,Slide } from 'react-toastify';
 
@@ -31,12 +32,12 @@ const HomePage = () => {
 
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-slate-50 via-blue-50/30 to-emerald-50/20 font-sans">
+    <div className="min-h-screen bg-white font-sans">
       {/* Navbar */}
       <Nav />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-4 sm:px-6 bg-[#FDF1EF]  lg:px-8 overflow-hidden  ">
+      <section className="relative pt-32 pb-20 px-4 sm:px-6   lg:px-8 overflow-hidden  ">
         <div className="max-w-7xl mx-auto relative  rounded-2xl">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
@@ -432,6 +433,9 @@ const HomePage = () => {
          transition={Slide} 
           />
       </section>
+
+      {/* Contact */}
+      <ContactForm />
 
       {/* Footer */}
 

@@ -5,12 +5,10 @@ import PatientForm from './PatientForm'
 import ResultView from './ResultView'
 
 const Form = () => {
-  // const [Result,setResult] = useState(null);
-  let  Result = null;
+  const [result, setResult] = useState(null);
 
-  const UpdateResults = (data)=>{
-
-    Result = data
+  const UpdateResults = (data) => {
+    setResult(data);
   }
 
   return (
@@ -19,9 +17,9 @@ const Form = () => {
 
       <div className='mt-20' >
 
-        {Result ? (
+        {result ? (
           <ResultView
-            data={Result}
+            data={result}
             onReset={() => {
               setResult(null);
             }}

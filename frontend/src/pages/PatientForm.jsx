@@ -5,7 +5,7 @@ import InputField from '../components/InputField';
 import SelectField from '../components/SelectField';
 import RadioGroup from '../components/RadioGroup';
 
-const PatientForm = () => {
+const PatientForm = ({ update }) => {
   const [formData, setFormData] = useState({
     age: '',
     sexe: '',
@@ -34,7 +34,8 @@ const PatientForm = () => {
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-
+  const [Result, setResult] = useState(null)
+  const depts = ['Littoral', 'Atlantique', 'Ouémé', 'Zou', 'Borgou', 'Mono', 'Couffo', 'Alibori', 'Atacora', 'Donga', 'Collines', 'Plateau'];
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({
@@ -70,21 +71,65 @@ const PatientForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!validateForm()) {
-      return;
-    }
+    if (!validateForm()) return;
 
     setIsSubmitting(true);
 
-    // Simulation d'envoi de données
-    await new Promise(resolve => setTimeout(resolve, 2000));
 
-    console.log('Données du patient:', formData);
-    setIsSubmitting(false);
-    setIsSuccess(true);
+    const dataToSubmit = {
+      "Age": parseInt(formData.age),
+      "Sexe": formData.sexe,
+      "Profession": formData.profession || "Sans profession",
+      "Situation Matrimoniale": formData.situationMatrimoniale,
+      "Adresse (Département)": formData.departement, 
+      "Hypertension Artérielle": formData.hta,
+      "Diabète": formData.diabete,
+      "Consommation de Tabac": formData.tabac,
+      "Consommation d'Alcool": formData.alcool,
+      "Pression Artérielle Systolique (mmHg)": parseFloat(formData.pressionSystolique),
+      "Pression Artérielle Diastolique (mmHg)": parseFloat(formData.pressionDiastolique),
+      "Pouls (bpm)": parseInt(formData.pouls),
+      "Température (C°)": parseFloat(formData.temperature),
+      "Etat Général (EG) à l'Admission": formData.etatGeneral,
+      "Créatinine (mg/L)": parseFloat(formData.creatinine),
+      "Urée (g/L)": parseFloat(formData.uree),
+      "Hb (g/dL)": parseFloat(formData.hemoglobine) || 13,
+      "Protéinurie (g/24h)": parseFloat(formData.proteinurie) || 0,
+      "Albumine (g/L)": parseFloat(formData.albumine) || 0,
+      "Glycémie à jeun (g/L)": parseFloat(formData.glycemie) || 1.0,
+      "Maladie Cardiovasculaire": formData.cardiovasculaire,
+      "Score de Glasgow (/15)": formData.glasgow ,
+      "Oedèmes": formData.oedemes,
+      "Conscience": "Claire"
+    };
 
-    // Reset success message after 3 seconds
-    setTimeout(() => setIsSuccess(false), 3000);
+    try {
+      const apiUrl = import.meta.env.VITE_PUBLIC_API_URL || 'http://localhost:8000';
+
+      const res = await fetch(`${apiUrl}/predict`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(dataToSubmit)
+      });
+
+      if (!res.ok) {
+        const errorData = await res.json();
+        console.error("Détails erreur API:", errorData);
+        throw new Error("Erreur serveur lors de la prédiction");
+      }
+
+      const data = await res.json();
+      setResult(data);
+      setIsSuccess(true);
+      update(JSON.stringify(data))
+
+
+    } catch (e) {
+      console.error(e);
+      alert("Erreur de connexion : " + e.message);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
 
@@ -117,6 +162,7 @@ const PatientForm = () => {
                 formData={formData}
                 handleChange={handleChange}
               />
+              
               <SelectField
                 label="Sexe"
                 name="sexe"
@@ -141,6 +187,16 @@ const PatientForm = () => {
                   { value: 'divorce', label: 'Divorcé(e)' },
                   { value: 'veuf', label: 'Veuf/Veuve' }
                 ]}
+              />
+              <SelectField
+                label="Departement de Résidence "
+                name="departement"
+                errors={errors}
+                formData={formData}
+                handleChange={handleChange}
+                options={
+                    depts.map(dep => ({ value: dep.toLowerCase(), label: dep }))
+                  }
               />
               <InputField
                 label="Profession"
@@ -181,6 +237,31 @@ const PatientForm = () => {
                   { value: 'non', label: 'Non' }
                 ]}
               />
+
+              <RadioGroup
+                label="Maladie Cardiovasculaire"
+                name="cardiovasculaire"
+                required
+                errors={errors}
+                formData={formData}
+                handleChange={handleChange}
+                options={[
+                  { value: 'oui', label: 'Oui' },
+                  { value: 'non', label: 'Non' }
+                ]}
+              />
+              <RadioGroup
+                label="Oedèmes"
+                name="oedemes"
+                required
+                errors={errors}
+                formData={formData}
+                handleChange={handleChange}
+                options={[
+                  { value: 'oui', label: 'Oui' },
+                  { value: 'non', label: 'Non' }
+                ]}
+              />
               <SelectField
                 label="consommation de Tabac"
                 name="tabac"
@@ -188,9 +269,9 @@ const PatientForm = () => {
                 formData={formData}
                 handleChange={handleChange}
                 options={[
-                  { value: 'non_fumeur', label: 'Non fumeur' },
-                  { value: 'fumeur', label: 'Fumeur actif' },
-                  { value: 'ancien', label: 'Ancien fumeur' }
+                  { value: 'non', label: 'Non fumeur' },
+                  { value: 'oui', label: 'Fumeur actif' },
+                  { value: 'oui', label: 'Ancien fumeur' }
                 ]}
               />
               <RadioGroup
@@ -267,7 +348,7 @@ const PatientForm = () => {
             </div>
           </div>
 
-          {/* Section 4: Données Biologiques */}
+          {/* Section 4:  Données Biologiques */}
           <div className="bg-white border border-gray-300 rounded-xl p-8">
             <SectionHeader icon={Droplet} title="Données Biologiques" />
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -314,6 +395,16 @@ const PatientForm = () => {
                 handleChange={handleChange}
               />
               <InputField
+                label="Score de Glasgow (/15)"
+                name="glasgow"
+                type="number"
+                step="0.01"
+                errors={errors}
+                placeholder="Ex: 0.15"
+                formData={formData}
+                handleChange={handleChange}
+              />
+              <InputField
                 label="Albumine sérique (g/L)"
                 name="albumine"
                 type="number"
@@ -342,10 +433,10 @@ const PatientForm = () => {
               type="submit"
               disabled={isSubmitting || isSuccess}
               className={`w-full py-4 px-6 text-sm font-semibold cursor-pointer rounded-2xl tracking-wide transition-all ${isSuccess
-                  ? 'bg-[#222266] text-white'
-                  : isSubmitting
-                    ? 'bg-[#222266]/90 text-white cursor-not-allowed'
-                    : 'bg-[#222266] text-white hover:bg-gray-800'
+                ? 'bg-[#222266] text-white'
+                : isSubmitting
+                  ? 'bg-[#222266]/90 text-white cursor-not-allowed'
+                  : 'bg-[#222266] text-white hover:bg-gray-800'
                 }`}
             >
               {isSuccess ? (
